@@ -182,10 +182,12 @@
                     mywindow.document.write('<table style="border: none; width: 100%;"><tr><td style="width: 85%">No. ' + $scope.paymentOR_number + '</td><td>Date ' + newdate + '</td></tr></table>');
                     //mywindow.document.write('<p style="text-indent: 10px;">Received from <span class="underliner" style="margin-left:100px"></span></p>');
                     //mywindow.document.write('<p >the sum of Pesos <span class="underliner" style="margin-left:100px">'+ response.data.amountText +'</span></p>');
-                    mywindow.document.write('<table style="border: none; width: 100%; padding: 5"><tr><td style="text-align:justify; text-indent:2px">Received from<td><td width="80%" style="border-bottom:1px solid black"></td></tr>');
-                    mywindow.document.write('<tr><td style="text-align:justify;">the sum of Pesos<td><td width="85%" style="border-bottom:1px solid black">'+ response.data.amountText +'</td></tr>');
-                    mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="85%" style="border-bottom:1px solid black">'+ $scope.paymentData.notes +'</td></tr>');
-                    mywindow.document.write('</table>');
+                    mywindow.document.write('<table style="border: none; width: 100%; padding: 5"><tr><td style="text-align:justify; text-indent:5px">Received from<td><td width="80%" style="border-bottom:1px solid black"></td></tr>');
+                    mywindow.document.write('<tr><td style="text-align:justify;">the sum of Pesos<td><td width="80%" style="border-bottom:1px solid black">'+ response.data.amountText +'</td></tr>');
+                    mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="80%" style="border-bottom:1px solid black">'+ $scope.paymentData.notes +'</td></tr>');
+                    mywindow.document.write('</table><br>');
+                    mywindow.document.write('<div style="margin-left:50px;">P<span style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
+                    mywindow.document.write('<div style="margin-left:200px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
                     mywindow.document.write('</body></html>');
                     $timeout(function () {
                         jsPrintSetup.print();

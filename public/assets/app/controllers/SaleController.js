@@ -189,7 +189,7 @@
                     //mywindow.print();
                     jsPrintSetup.print();
                     jsPrintSetup.setOption('headerStrLeft', '');
-                    jsPrintSetup.setOption('headerStrRight', '');
+                    jsPrintSetup.setOption('headerStrRight', 'Some text here');
                     jsPrintSetup.setOption('footerStrLeft', '');
                     jsPrintSetup.setOption('footerStrRight', '');
                     jsPrintSetup.setOption('marginTop', 1.016);
