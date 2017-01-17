@@ -10,7 +10,7 @@ return
 	 * Default configuration to use.
 	 */
 
-	'default' => 'devdb',
+	'default' => 'ordillos',
 
 	/**
 	 * ---------------------------------------------------------
@@ -30,11 +30,11 @@ return
 
 	'configurations' =>
 	[
-		'devdb' =>
+		'ordillos' =>
 		[
-			'dsn'         => 'mysql:dbname=db_inventory_system;host=localhost;port=3306',
-			'username'    => 'lenovo',
-			'password'    => 'toor',
+			'dsn'         => 'mysql:dbname=pos_master;host=localhost;port=3306',
+			'username'    => 'root',
+			'password'    => '',
 			'persistent'  => false,
 			'log_queries' => false,
 			'reconnect'   => false,
