@@ -187,7 +187,7 @@
                     mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="80%" style="border-bottom:1px solid black">'+ $scope.paymentData.notes +'</td></tr>');
                     mywindow.document.write('</table><br>');
                     mywindow.document.write('<div style="margin-left:50px;">P<span style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
-                    mywindow.document.write('<div style="margin-left:200px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
+                    mywindow.document.write('<div style="margin-left:500px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
                     mywindow.document.write('</body></html>');
                     $timeout(function () {
                         jsPrintSetup.print();
