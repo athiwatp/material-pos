@@ -165,18 +165,18 @@
 
                 mywindow.document.write('<html><head><base href="/" /><title>' + document.title + '</title>');
                 // mywindow.document.write('<link rel="stylesheet" href="assets/css/custom/sales-styles.css" type="text/css" />');
-                mywindow.document.write('<style>table {width: 100%;} table, th, tr, td {padding: 0.2em; border: 1px solid black; border-collapse: collapse;}');
+                mywindow.document.write('<style>table {width: 90%; margin-left:70px;} table, th, tr, td {padding: 0.2em; border: 1px solid black; border-collapse: collapse;}');
                 mywindow.document.write('a {text-decoration: none; color: black;} .hideonPrint {display: none;}</style>')
                     //mywindow.document.write('.customerName {margin-left: 50px;}</style>')
                 mywindow.document.write('</head><body >');
-                mywindow.document.write('<span style="font-style: large;">TRUST RECEIPT AGREEMENT</span><br>');
-                mywindow.document.write('<span style="float: right;">No.  <b>' + response.data.or_number + '</b></span><br><br>');
+                mywindow.document.write('<div style="width: 90%; margin-left:70px;"><span style="font-style: large;">TRUST RECEIPT AGREEMENT</span>');
+                mywindow.document.write('<span style="float: right;">No.  <b>' + response.data.or_number + '</b></span></div><br><br>');
                 mywindow.document.write('<table><tr><td style="width: 80%">Entrusted To: <b>' + $scope.saleData.customer_name + '</b></td><td>' + newdate + '</td></tr>');
                 mywindow.document.write('<tr><td colspan="2">By:</td></tr></table><br>');
                 //mywindow.document.write('<span class="orNumber">' + or_number + '</span>');
                 mywindow.document.write(document.getElementById(printableArea).innerHTML);
                 mywindow.document.write('<br>');
-                mywindow.document.write('<div style="font-size: small;"><p style="text-indent: 30px;">Received from ________________________(Entruster) the merchandise listed and described above and in consideration thereof the undersigned hereby agrees to hold the said merchandise IN TRUST for the Entruster for the purpose specified herein.');
+                mywindow.document.write('<div style="font-size: small; width;80%"><p style="text-indent: 30px;">Received from ________________________(Entruster) the merchandise listed and described above and in consideration thereof the undersigned hereby agrees to hold the said merchandise IN TRUST for the Entruster for the purpose specified herein.');
                 mywindow.document.write('<p style="text-indent: 30px;">The undersigned hereby agrees to sell the merchandise listed and described above and to turn over to the Entruster the proceeds of such sale to the extent specified above on or before its due date which shall be ___________________ from date of execution hereof. Before remittance of the sales proceeds to the Entruster, the undersigned shall hold such proceeds in trust for the Enteruster. Any commission or rebate shall be forfeited upon failure of the undersigned to remit to the Entruster full amount specified above on or before the due date. I ncase the merchandise listed and described above are not sold on the date, the undersigned shall deliver such unsold merchandise to the Entruster.</p>');
                 mywindow.document.write('<p style="text-indent: 30px;">Any action arising out of or in connection with this Trust Receipt shall be instituted in any court.</p></div><br><br>');
                 mywindow.document.write("<span style='text-decoration:overline; text-align:center;'><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Entrustee's Signature over Printed Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></span>");
@@ -193,6 +193,7 @@
                     jsPrintSetup.setOption('footerStrLeft', '');
                     jsPrintSetup.setOption('footerStrRight', '');
                     jsPrintSetup.setOption('marginTop', 1.016);
+                    jsPrintSetup.setOption('marginLeft', 0);
                     mywindow.close();
                     $scope.invoiceData = [];
                     $scope.saleData.totalAmount = 0;

@@ -40,7 +40,10 @@ class AuthController extends Controller
 
     public function createUsers()
     {
-        $this->gatekeeper->createUser('ordillos@gmail.com', 'admin', 'password', true);
+        $this->gatekeeper->createUser('ordillos@gmail.com', 'admin', 'ordillos1234', true);
+        $this->gatekeeper->createUser('len@gmail.com', 'len', 'len1234', true);
+        $this->gatekeeper->createUser('lean@gmail.com', 'lean', 'lean1234', true);
+        $this->gatekeeper->createUser('nerissa@gmail.com', 'nerissa', 'nerissa1234', true);
         //$this->gatekeeper->createUser('ordillos@gmail.com', 'admin', 'password', true);
         //$this->gatekeeper->createUser('ordillos@gmail.com', 'admin', 'password', true);
     }

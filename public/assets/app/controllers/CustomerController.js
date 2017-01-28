@@ -178,16 +178,16 @@
                     mywindow.document.write('<html><head><base href="/" /><title>' + document.title + '</title>');
                     mywindow.document.write('<style>.underliner{ border-bottom: 1px solid black; width: 80%; display: block; }</style>');
                     mywindow.document.write('</head><body >');
-                    mywindow.document.write('<h2><center><b>RECEIPT</b></center></h2>');
-                    mywindow.document.write('<table style="border: none; width: 100%;"><tr><td style="width: 85%">No. ' + $scope.paymentOR_number + '</td><td>Date ' + newdate + '</td></tr></table>');
+                    mywindow.document.write('<h3><center>RECEIPT</center></h3>');
+                    mywindow.document.write('<table style="border: none; width: 90%; margin-left: 50px;"><tr><td style="width: 85%">No. ' + $scope.paymentOR_number + '</td><td>Date ' + newdate + '</td></tr></table>');
                     //mywindow.document.write('<p style="text-indent: 10px;">Received from <span class="underliner" style="margin-left:100px"></span></p>');
                     //mywindow.document.write('<p >the sum of Pesos <span class="underliner" style="margin-left:100px">'+ response.data.amountText +'</span></p>');
-                    mywindow.document.write('<table style="border: none; width: 100%; padding: 5"><tr><td style="text-align:justify; text-indent:5px">Received from<td><td width="80%" style="border-bottom:1px solid black"></td></tr>');
+                    mywindow.document.write('<table style="border: none; width: 90%; padding: 3; margin-left:50px;"><tr><td style="text-align:justify; text-indent:5px">Received from<td><td width="80%" style="border-bottom:1px solid black"></td></tr>');
                     mywindow.document.write('<tr><td style="text-align:justify;">the sum of Pesos<td><td width="80%" style="border-bottom:1px solid black">'+ response.data.amountText +'</td></tr>');
                     mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="80%" style="border-bottom:1px solid black">'+ $scope.paymentData.notes +'</td></tr>');
                     mywindow.document.write('</table><br>');
-                    mywindow.document.write('<div style="margin-left:50px;">P<span style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
-                    mywindow.document.write('<div style="margin-left:500px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
+                    mywindow.document.write('<div style="margin-left:100px;">P<span style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
+                    mywindow.document.write('<div style="margin-left:800px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
                     mywindow.document.write('</body></html>');
                     $timeout(function () {
                         jsPrintSetup.print();

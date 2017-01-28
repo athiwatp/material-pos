@@ -60,7 +60,7 @@
 
             mywindow.document.write('<html><head><base href="/" /><title>' + document.title + '</title>');
             //mywindow.document.write('<link rel="stylesheet" href="assets/css/printstyles.css" type="text/css"/>');
-            mywindow.document.write('<style>table {width: 100%; border-collapse: collapse;}');
+            mywindow.document.write('<style>table {width: 90%; border-collapse: collapse; margin-left:70px;}');
             mywindow.document.write('table, th, td {border: 1px solid black; padding: 1px;}');
             mywindow.document.write('a {text-decoration: none; color: black;}</style>')
             mywindow.document.write('</head><body >');
