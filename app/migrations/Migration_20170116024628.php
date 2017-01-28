@@ -27,6 +27,7 @@ class Migration_20170116024628 extends Migration
 		`product_name` varchar(255) NOT NULL,
 		`sale_quantity` int(11) NOT NULL,
 		`or_number` varchar(255) NOT NULL DEFAULT 0,
+		`current_price` double NOT NULL,
 		`total_price` double NOT NULL,
 		`created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		PRIMARY KEY (`sale_id`)

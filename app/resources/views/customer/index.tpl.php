@@ -133,7 +133,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="s in sales">
-                        <td><a href="" ng-click="viewSaleDetails(s.or_number)" class="pink-text">{[{s.or_number}]}</a></td>
+                        <td><a href="" ng-click="viewSaleDetails(s.or_number, s.created_at)" class="pink-text">{[{s.or_number}]}</a></td>
                         <td><a href="" ng-click="viewPaymentHistory(s.or_number)" class="blue-text text-darken-2">{[{s.sales_total | currency:''}]}</a></td>
                         <td ng-bind="s.created_at | date:'medium'"></td>
                         <td><button class="btn" ng-click="selectOR(s.or_number, s.sales_id)">Pay now</button></td>
@@ -151,27 +151,33 @@
     <div id="viewSalesSummaryModal" class="modal">
         <div class="modal-content">
             <h4>Summary of OR# {[{or_number}]}</h4>
+            <a href="" ng-click="reprint(or_number, 'reprintArea')">Reprint Receipt</a>
+            <div id="reprintArea">
             <table class="responsive-table display">
                 <thead>
                     <tr>
-                        <th>Product</th>
                         <th>Quantity</th>
+                        <th>Product</th>
+                        <th>Price</th>
                         <th>Total</th>    
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="sd in saleData">
-                        <td ng-bind="sd.product_name"></td>
                         <td ng-bind="sd.sale_quantity"></td>
+                        <td ng-bind="sd.product_name"></td>
+                        <td ng-bind="sd.current_price | currency:''"></td>
                         <td ng-bind="sd.total_price | currency:''"></td>    
                     </tr>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td>Total: <b>{[{totalAmount()| currency:''}]}</b></td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect btn-flat">Close</a>

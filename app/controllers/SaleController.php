@@ -49,6 +49,7 @@ class SaleController extends Controller
                     $sale->product_name = $value->product_name;
                     $sale->sale_quantity = $value->product_quantity;
                     $sale->or_number = $updateSaleOR->or_number;
+                    $sale->current_price = $value->product_price;
                     $sale->total_price = $value->product_quantity * $value->product_price;
                     $sale_total += $sale->total_price;
                     // Save sale and deduct to current quantity

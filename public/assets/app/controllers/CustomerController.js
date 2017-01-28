@@ -133,8 +133,9 @@
         }
 
         $scope.saleData = [];
-        $scope.viewSaleDetails = function (or_number) {
+        $scope.viewSaleDetails = function (or_number, created_at) {
             Sales.summary(or_number).then(function (response) {
+                $scope.created_at_reprint = created_at;
                 console.log(response.data)
                 $scope.saleData = response.data;
                 $scope.or_number = or_number;
@@ -183,8 +184,8 @@
                     //mywindow.document.write('<p style="text-indent: 10px;">Received from <span class="underliner" style="margin-left:100px"></span></p>');
                     //mywindow.document.write('<p >the sum of Pesos <span class="underliner" style="margin-left:100px">'+ response.data.amountText +'</span></p>');
                     mywindow.document.write('<table style="border: none; width: 90%; padding: 3; margin-left:50px;"><tr><td style="text-align:justify; text-indent:5px">Received from<td><td width="80%" style="border-bottom:1px solid black"></td></tr>');
-                    mywindow.document.write('<tr><td style="text-align:justify;">the sum of Pesos<td><td width="80%" style="border-bottom:1px solid black">'+ response.data.amountText +'</td></tr>');
-                    mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="80%" style="border-bottom:1px solid black">'+ $scope.paymentData.notes +'</td></tr>');
+                    mywindow.document.write('<tr><td style="text-align:justify;">the sum of Pesos<td><td width="80%" style="border-bottom:1px solid black">' + response.data.amountText + '</td></tr>');
+                    mywindow.document.write('<tr><td style="text-align:justify;">as payment for<td><td width="80%" style="border-bottom:1px solid black">' + $scope.paymentData.notes + '</td></tr>');
                     mywindow.document.write('</table><br>');
                     mywindow.document.write('<div style="margin-left:100px;">P<span style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
                     mywindow.document.write('<div style="margin-left:800px;"><span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>');
@@ -225,6 +226,48 @@
             }, function (error) {
                 console.log(error);
             })
+        }
+
+        $scope.reprint = function (or_number, printableArea) {
+            var dateObj = new Date($scope.created_at_reprint);
+            var month = dateObj.getUTCMonth() + 1; //months from 1-12
+            var day = dateObj.getUTCDate();
+            var year = dateObj.getUTCFullYear();
+
+            var newdate = month + "/" + day + "/" + year;
+            var mywindow = window.open('', 'PRINT', 'height=600,width=800');
+            mywindow.document.write('<html><head><title>' + document.title + '</title>');
+            mywindow.document.write('<style>table {width: 90%; margin-left:70px;} table, th, tr, td {padding: 0.2em; border: 1px solid black; border-collapse: collapse;} </style>');
+            //mywindow.document.write('.customerName {margin-left: 50px;}</style>')
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<div style="width: 90%; margin-left:70px;"><span style="font-style: large;">TRUST RECEIPT AGREEMENT</span>');
+            mywindow.document.write('<span style="float: right;">No.  <b>' + or_number + '</b></span></div><br><br>');
+            mywindow.document.write('<table><tr><td style="width: 80%">Entrusted To: </td><td>' + newdate + '</td></tr>');
+            mywindow.document.write('<tr><td colspan="2">By:</td></tr></table><br>');
+            //mywindow.document.write('<span class="orNumber">' + or_number + '</span>');
+            mywindow.document.write(document.getElementById(printableArea).innerHTML);
+            mywindow.document.write('<br>');
+            mywindow.document.write('<div style="font-size: small;"><p style="text-indent: 30px;">Received from ________________________(Entruster) the merchandise listed and described above and in consideration thereof the undersigned hereby agrees to hold the said merchandise IN TRUST for the Entruster for the purpose specified herein.');
+            mywindow.document.write('<p style="text-indent: 30px;">The undersigned hereby agrees to sell the merchandise listed and described above and to turn over to the Entruster the proceeds of such sale to the extent specified above on or before its due date which shall be ___________________ from date of execution hereof. Before remittance of the sales proceeds to the Entruster, the undersigned shall hold such proceeds in trust for the Enteruster. Any commission or rebate shall be forfeited upon failure of the undersigned to remit to the Entruster full amount specified above on or before the due date. I ncase the merchandise listed and described above are not sold on the date, the undersigned shall deliver such unsold merchandise to the Entruster.</p>');
+            mywindow.document.write('<p style="text-indent: 30px;">Any action arising out of or in connection with this Trust Receipt shall be instituted in any court.</p></div><br><br>');
+            mywindow.document.write("<span style='text-decoration:overline; text-align:center;'><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Entrustee's Signature over Printed Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</center></span>");
+            mywindow.document.write('</body></html>');
+
+            // mywindow.document.close(); // necessary for IE >= 10
+            //mywindow.focus(); // necessary for IE >= 10*/
+
+            $timeout(function () {
+                //mywindow.print();
+                jsPrintSetup.print();
+                jsPrintSetup.setOption('headerStrLeft', '');
+                jsPrintSetup.setOption('headerStrRight', 'Some text here');
+                jsPrintSetup.setOption('footerStrLeft', '');
+                jsPrintSetup.setOption('footerStrRight', '');
+                jsPrintSetup.setOption('marginTop', 1.016);
+                jsPrintSetup.setOption('marginLeft', 0);
+                mywindow.close();
+                return true;
+            }, 10);
         }
 
 
